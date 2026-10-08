@@ -1,0 +1,24 @@
+{
+  "id": "postgres",
+  "label": "PostgreSQL",
+  "version": "1.0.0",
+  "description": "Bộ skill cho cơ sở dữ liệu PostgreSQL (truy vấn và index, kết nối, phân quyền và RLS, thiết kế schema, khoá, mẫu truy cập dữ liệu, chẩn đoán) — không gắn với framework nào, ghép được với bất kỳ backend nào gọi Postgres trực tiếp. Skill lấy từ supabase/agent-skills, áp dụng cho Postgres chạy ở bất kỳ đâu (xem THIRD_PARTY.md). Dự án đã tick bộ Supabase thì KHÔNG cần bộ này: bộ đó mang cùng nội dung.",
+  "maintainer": "bow-gid",
+  "skillsDir": "skills",
+  "targets": {
+    "detect": [
+      { "file": "package.json", "contains": "\"postgres\"" },
+      { "file": "package.json", "contains": "\"pg\"" },
+      { "file": "schema.prisma", "contains": "provider = \"postgresql\"" },
+      { "file": "docker-compose.yml", "contains": "image: postgres" },
+      { "file": "docker-compose.yaml", "contains": "image: postgres" },
+      { "file": "compose.yaml", "contains": "image: postgres" },
+      { "file": ".env.example", "contains": "postgres://" },
+      { "file": ".env.example", "contains": "postgresql://" },
+      { "file": ".env.example", "contains": "DB_CONNECTION=pgsql" }
+    ]
+  },
+  "skills": [
+    "postgres-best-practices"
+  ]
+}
